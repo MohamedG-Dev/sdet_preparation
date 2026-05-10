@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-03-02T22:25:12 IST" name="Default suite" finished-at="2026-03-02T22:25:17 IST" duration-ms="4314">
+  <suite started-at="2026-05-10T13:27:59 IST" name="Default suite" finished-at="2026-05-10T13:28:19 IST" duration-ms="20422">
     <groups>
     </groups>
-    <test started-at="2026-03-02T22:25:12 IST" name="Default test" finished-at="2026-03-02T22:25:17 IST" duration-ms="4314">
-      <class name="prep.restassured.epam.LoginAPITest">
-        <test-method signature="loginTest()[pri:0, instance:prep.restassured.epam.LoginAPITest@3e694b3f]" started-at="2026-03-02T22:25:12 IST" name="loginTest" finished-at="2026-03-02T22:25:17 IST" duration-ms="4228" status="PASS">
+    <test started-at="2026-05-10T13:27:59 IST" name="Default test" finished-at="2026-05-10T13:28:19 IST" duration-ms="20422">
+      <class name="selenium.yatraCalendarAutomation.YatraAutomationScriptOptimized">
+        <test-method signature="yatraAutomationTestScript()[pri:0, instance:selenium.yatraCalendarAutomation.YatraAutomationScriptOptimized@13c9d689]" started-at="2026-05-10T13:27:59 IST" name="yatraAutomationTestScript" finished-at="2026-05-10T13:28:19 IST" duration-ms="20353" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest -->
-      </class> <!-- prep.restassured.epam.LoginAPITest -->
+        </test-method> <!-- yatraAutomationTestScript -->
+      </class> <!-- selenium.yatraCalendarAutomation.YatraAutomationScriptOptimized -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
