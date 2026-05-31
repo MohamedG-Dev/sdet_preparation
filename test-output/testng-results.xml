@@ -2,16 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-10T13:37:04 IST" name="Default suite" finished-at="2026-05-10T13:37:21 IST" duration-ms="16705">
+  <suite started-at="2026-05-31T12:26:57 IST" name="Default suite" finished-at="2026-05-31T12:27:02 IST" duration-ms="5452">
     <groups>
     </groups>
-    <test started-at="2026-05-10T13:37:04 IST" name="Default test" finished-at="2026-05-10T13:37:21 IST" duration-ms="16705">
-      <class name="selenium.yatraCalendarAutomation.YatraAutomationScriptOptimized">
-        <test-method signature="yatraAutomationTestScript()[pri:0, instance:selenium.yatraCalendarAutomation.YatraAutomationScriptOptimized@13c9d689]" started-at="2026-05-10T13:37:04 IST" name="yatraAutomationTestScript" finished-at="2026-05-10T13:37:21 IST" duration-ms="16633" status="PASS">
+    <test started-at="2026-05-31T12:26:57 IST" name="Default test" finished-at="2026-05-31T12:27:02 IST" duration-ms="5452">
+      <class name="prep.LTI.ResponsivenessTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:prep.LTI.ResponsivenessTest@618b19ad]" started-at="2026-05-31T12:26:57 IST" name="setup" description="Launching Chrome Browser" finished-at="2026-05-31T12:27:00 IST" duration-ms="3154" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- yatraAutomationTestScript -->
-      </class> <!-- selenium.yatraCalendarAutomation.YatraAutomationScriptOptimized -->
+        </test-method> <!-- setup -->
+        <test-method signature="responsiveTest()[pri:0, instance:prep.LTI.ResponsivenessTest@618b19ad]" started-at="2026-05-31T12:27:00 IST" name="responsiveTest" description="check if webpage is responsive or not" finished-at="2026-05-31T12:27:02 IST" duration-ms="2234" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- responsiveTest -->
+      </class> <!-- prep.LTI.ResponsivenessTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
