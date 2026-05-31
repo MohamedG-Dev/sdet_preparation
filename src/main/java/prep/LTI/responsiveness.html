@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automation Responsiveness Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative; /* Keeps mobile dropdown aligned perfectly below header */
+        }
+        /* Navigation Links Layout */
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-item {
+            color: white; 
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .nav-item:hover {
+            text-decoration: underline;
+        }
+        /* Mobile Menu Button - Hidden by default on Desktop */
+        #mobile-hamburger {
+            display: none;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .container {
+            display: flex;
+            padding: 20px;
+            gap: 20px;
+        }
+        .main-content { flex: 3; background: #f4f4f4; padding: 20px; min-height: 300px; }
+        .sidebar { flex: 1; background: #ddd; padding: 20px; }
+
+        /* Dynamic Content Display Box */
+        #dynamic-display {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-left: 5px solid #ff5722;
+        }
+
+        /* ======================================================= */
+        /* RESPONSIVE BREAKPOINT: Mobile Screens (Less than 768px) */
+        /* ======================================================= */
+        @media (max-width: 767px) {
+            #mobile-hamburger {
+                display: block; /* Show hamburger button on mobile */
+            }
+            
+            /* Transform nav-links into a hidden vertical dropdown */
+            .nav-links {
+                display: none; 
+                flex-direction: column;
+                position: absolute;
+                top: 100%; /* Positions it directly below the header bar */
+                left: 0;
+                width: 100%;
+                background-color: #444;
+                padding: 0;
+                gap: 0;
+                z-index: 1000;
+                box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+            }
+            
+            /* Show the menu only when the 'active' class is injected by JS */
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                padding: 15px 20px;
+                border-bottom: 1px solid #555;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .nav-item:hover {
+                background-color: #555;
+                text-decoration: none;
+            }
+            
+            .container {
+                flex-direction: column; /* Stack layout sections vertically */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><h3>SDET TestLab</h3></div>
+        <div class="nav-links" id="desktop-nav">
+            <span class="nav-item" data-target="Home">Home</span>
+            <span class="nav-item" data-target="Dashboard">Dashboard</span>
+            <span class="nav-item" data-target="Settings">Settings</span>
+        </div>
+        <button id="mobile-hamburger">☰ Mobile Menu</button>
+    </header>
+
+    <div class="container">
+        <div class="main-content" id="main-box">
+            <h1>Welcome to the Responsiveness Practice Page</h1>
+            <p>Resize your browser viewport width to see layouts shift dynamically!</p>
+            
+            <div id="dynamic-display">
+                <p><em>Click a menu option to load mock data content.</em></p>
+            </div>
+        </div>
+        <div class="sidebar" id="side-box">
+            <h3>Sidebar Panels</h3>
+            <p>On desktop, I sit to the right. On mobile viewports, I drop directly to the bottom.</p>
+        </div>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById('mobile-hamburger');
+        const navLinks = document.getElementById('desktop-nav');
+        const displayBox = document.getElementById('dynamic-display');
+
+        // Mock data dictionary mapping to elements
+        const mockData = {
+            "Home": "🏠 Welcome Home! This is dummy data showing your recent activity feeds and basic welcome summaries.",
+            "Dashboard": "📊 Dashboard Content Loaded: Total Automation Runs: 452 | Success Rate: 98.4% | Failed Assertions: 7.",
+            "Settings": "⚙️ Settings Panel Data: API Environment set to 'Staging_V2'. Execution Timeout configured for 30000ms."
+        };
+
+        // 1. Listen for clicks explicitly on the hamburger button to show/hide the list
+        hamburger.addEventListener('click', (e) => {
+            navLinks.classList.toggle('active');
+            e.stopPropagation(); // Stops the event from hitting document level instantly
+        });
+
+        // 2. Listen for clicks on the list items to load data and close the drawer
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                const targetKey = e.target.getAttribute('data-target');
+                
+                // Inject the mock data view
+                if (mockData[targetKey]) {
+                    displayBox.innerHTML = `<h3>${targetKey} Data View</h3><p>${mockData[targetKey]}</p>`;
+                }
+
+                // Collapse the mobile drawer menu once an option is selected
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // 3. Optional: Close the menu drawer if clicking outside the header block
+        document.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
